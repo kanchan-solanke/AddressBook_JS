@@ -1,0 +1,84 @@
+console.log("Welcome to the Address Book")
+
+var users = [
+    [
+
+        'Amir',
+        'Khan',
+        '9988778899',
+        'Pune',
+        'MH',
+        '411033',
+        'amir121123@gmail.com',
+    ],
+    [
+        'Akshay',
+        'Kumar',
+        '9876543212',
+        'Mumbai',
+        'MH',
+        '411098',
+        'akshay@gmail.com'
+
+    ],
+    [
+        'Rishi',
+        'Kapoor',
+        '9634562345',
+        'Nashik',
+        'MH',
+        '418765',
+        'rishi@gmail.com'
+    ],
+    [
+        'Rishi',
+        'Kapoor',
+        '9037137892',
+        'Goa',
+        'MH',
+        '676546',
+        'hkkj@gmail.com'
+    ]
+]
+
+// UC1 
+
+class AddressBookMain {
+    constructor(firstName, lastName, phoneNumber, city, state, zip, email) {
+        this.id = Math.random().toString(16).slice(2)
+        this.firstName = firstName
+        this.lastName = lastName
+        this.phoneNumber = phoneNumber
+        this.addreess =
+        {
+            city,
+            state,
+            zip
+        }
+        this.email = email
+    }
+}
+
+//UC2
+
+const details = users.map((user) => {
+    return new AddressBookMain(...user)
+})
+
+console.log("Details are: " + details)
+
+
+//UC3
+
+console.log("---------------------------------------")
+const updateDetails = details.map((user) => {
+    if (user.firstName === 'Akshay') {
+        return {
+            ...user,
+            lastName: "Kumarrr"
+        }
+    }
+    return user;
+})
+
+console.log("Update details" + updateDetails)
